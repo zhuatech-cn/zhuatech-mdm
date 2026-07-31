@@ -1,0 +1,2 @@
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+package cn.zhuatech.mdm.repository;import cn.zhuatech.mdm.model.PurchaseOrder;import org.springframework.data.jpa.repository.JpaRepository;import java.util.List;public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder,Long>{List<PurchaseOrder> findAllByOrderByExpectedDateAsc();long countByStatus(String status);}
