@@ -14,3 +14,7 @@
 | POST | `/api/mdm/alerts/{id}/close` | 关闭风险预警 |
 
 除登录接口外均需 `Authorization: Bearer <token>`。演示接口仅用于个人非商业学习。
+
+## 重复记录匹配
+
+`POST /api/mdm/duplicate-match`：返回主数据匹配分、合并决策和证据列表。

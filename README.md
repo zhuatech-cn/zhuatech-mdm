@@ -81,3 +81,7 @@ docker compose up --build
 | ![微信咨询一](docs/images/zhuatech-wechat-consulting.png) | ![微信咨询二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 搜索关键词：MDM 开源、主数据管理系统源码、数据治理平台、数据质量管理、物料主数据、供应商主数据、Java MDM、知华科技、上海如静知华信息科技有限公司。
+
+## 主数据重复记录判定
+
+`POST /api/mdm/duplicate-match` 将编码、名称、地址相似度、统一社会信用代码和冲突字段转换为匹配分，返回 `MERGE / REVIEW / KEEP_SEPARATE` 决策及证据列表。合并建议仍保留冲突字段提示，便于建立可审计的主数据治理流程。
