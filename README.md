@@ -85,3 +85,7 @@ docker compose up --build
 ## 主数据重复记录判定
 
 `POST /api/mdm/duplicate-match` 将编码、名称、地址相似度、统一社会信用代码和冲突字段转换为匹配分，返回 `MERGE / REVIEW / KEEP_SEPARATE` 决策及证据列表。合并建议仍保留冲突字段提示，便于建立可审计的主数据治理流程。
+
+## 黄金记录生存规则
+
+新增 `POST /api/mdm/insights/golden-record-survivorship`，按字段完整度、来源核验、数据新鲜度、管理员确认和关键冲突对候选主数据排序，输出 `AUTO_MERGE / STEWARD_REVIEW / BLOCK_MERGE`。结果保留来源排名和字段级治理动作，支持可解释的黄金记录生成。
