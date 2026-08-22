@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 export const stats=[['待审变更','12','物料 7 · 客户 3 · 供应商 2','blue'],['主数据总量','28.6万','今日新增 186 条','green'],['质量预警','3','其中 1 项阻断下游','red'],['规则通过率','97.6%','较上周提升 1.3%','amber']]
 export const demands=[
  {no:'CR-20260731-036',material:'工业控制芯片 X48',code:'MAT-IC-1048',source:'ERP / 物料主数据',qty:'6 个属性变更',stock:'92%',gap:'-2 项',date:'08-01',status:'待数据审核',risk:'高'},

@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.mdm.controller;
 import cn.zhuatech.mdm.common.ApiResponse;import cn.zhuatech.mdm.dto.MdmDto.*;import cn.zhuatech.mdm.service.MdmService;import jakarta.validation.Valid;import org.springframework.security.access.prepost.PreAuthorize;import org.springframework.web.bind.annotation.*;import java.util.List;
 @RestController @RequestMapping("/api/mdm") @PreAuthorize("hasAnyRole('ADMIN','PLANNER','BUYER')") public class SupplyChainController {
