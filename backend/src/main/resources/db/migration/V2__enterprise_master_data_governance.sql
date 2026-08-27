@@ -1,0 +1,9 @@
+-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/
+CREATE TABLE deep_mdm_domain (id BIGINT PRIMARY KEY AUTO_INCREMENT,domain_code VARCHAR(255) NOT NULL,name VARCHAR(255),key_field VARCHAR(255),match_threshold INT NOT NULL,status VARCHAR(32) NOT NULL,lock_version BIGINT NOT NULL,UNIQUE KEY uk_deep_mdm_domain(domain_code));
+CREATE TABLE deep_mdm_record (id BIGINT PRIMARY KEY AUTO_INCREMENT,domain_id BIGINT,record_no VARCHAR(255) NOT NULL,source_system VARCHAR(255),business_key VARCHAR(255),name VARCHAR(255),normalized_name VARCHAR(255),identity_no VARCHAR(255),status VARCHAR(32) NOT NULL,golden_id BIGINT,created_at DATETIME(6),lock_version BIGINT NOT NULL,UNIQUE KEY uk_deep_mdm_record(record_no));
+CREATE TABLE deep_mdm_match (id BIGINT PRIMARY KEY AUTO_INCREMENT,record_id BIGINT,candidate_id BIGINT,score INT NOT NULL,status VARCHAR(32) NOT NULL,UNIQUE KEY uk_deep_mdm_match(record_id,candidate_id));
+CREATE TABLE deep_mdm_change (id BIGINT PRIMARY KEY AUTO_INCREMENT,change_no VARCHAR(255) NOT NULL,golden_record_id BIGINT,field_name VARCHAR(255),old_value VARCHAR(255),new_value VARCHAR(255),reason VARCHAR(255),status VARCHAR(32) NOT NULL,lock_version BIGINT NOT NULL,UNIQUE KEY uk_deep_mdm_change(change_no));
+CREATE TABLE deep_mdm_outbox (id BIGINT PRIMARY KEY AUTO_INCREMENT,event_no VARCHAR(255) NOT NULL,record_id BIGINT,target_system VARCHAR(255),status VARCHAR(32) NOT NULL,retries INT NOT NULL,created_at DATETIME(6),sent_at DATETIME(6),UNIQUE KEY uk_deep_mdm_outbox(event_no));
+CREATE TABLE deep_mdm_audit (id BIGINT PRIMARY KEY AUTO_INCREMENT,action VARCHAR(255),aggregate_no VARCHAR(255),detail VARCHAR(255),created_at DATETIME(6));
+CREATE INDEX idx_deep_mdm_record_match ON deep_mdm_record(domain_id,status,identity_no,normalized_name);
+CREATE INDEX idx_deep_mdm_outbox_status ON deep_mdm_outbox(status,created_at);
