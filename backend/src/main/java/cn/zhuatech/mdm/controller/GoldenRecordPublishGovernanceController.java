@@ -1,0 +1,4 @@
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
+package cn.zhuatech.mdm.controller;
+import cn.zhuatech.mdm.common.ApiResponse;import cn.zhuatech.mdm.service.GoldenRecordPublishGovernanceService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/enterprise/mdm")public class GoldenRecordPublishGovernanceController{private final GoldenRecordPublishGovernanceService service;public GoldenRecordPublishGovernanceController(GoldenRecordPublishGovernanceService service){this.service=service;}@PostMapping("/golden-record-publish")public ApiResponse<GoldenRecordPublishGovernanceService.Assessment> assess(@Valid @RequestBody GoldenRecordPublishGovernanceService.Request request){return ApiResponse.ok("黄金记录发布评估完成",service.assess(request));}}

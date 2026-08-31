@@ -1,5 +1,9 @@
 # ZhuaTech MDM
 
+## 企业级增强：黄金记录发布治理
+
+新增质量、重复消解、关键冲突、字段血缘、隐私分类、数据管理员、下游影响和可靠分发门禁，详见 [黄金记录发布治理](docs/ENTERPRISE_GOLDEN_RECORD_PUBLISH.md)。
+
 ## 黄金记录治理深化（2026-08）
 
 已补齐来源记录接入、候选匹配、黄金记录创建/合并、字段级变更审批和 Outbox 分发链路。完整说明见 [MDM 企业深化能力](docs/ENTERPRISE_DEEPENING.md)。
