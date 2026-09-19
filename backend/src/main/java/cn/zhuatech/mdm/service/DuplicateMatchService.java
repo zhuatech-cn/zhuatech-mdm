@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class DuplicateMatchService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result compare(Request request) {
         int score = Math.max(0, Math.min(100, (int) Math.round((request.codeSimilarity() * .25
             + request.nameSimilarity() * .35 + request.addressSimilarity() * .20) * 100
@@ -26,11 +32,17 @@ public class DuplicateMatchService {
         return new Result(request.leftRecordId(), request.rightRecordId(), score, decision, evidence);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String leftRecordId, @NotBlank String rightRecordId,
                           @DecimalMin("0") @DecimalMax("1") double codeSimilarity,
                           @DecimalMin("0") @DecimalMax("1") double nameSimilarity,
                           @DecimalMin("0") @DecimalMax("1") double addressSimilarity,
                           boolean sameTaxId, @Min(0) int conflictingFields) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String leftRecordId, String rightRecordId, int matchScore,
                          String decision, List<String> evidence) {}
 }

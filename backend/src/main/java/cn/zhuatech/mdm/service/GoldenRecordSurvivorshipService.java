@@ -11,8 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class GoldenRecordSurvivorshipService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result select(Request request) {
         List<ScoredCandidate> ranked = request.candidates().stream()
             .map(candidate -> new ScoredCandidate(candidate.sourceSystem(), score(candidate),
@@ -36,6 +42,9 @@ public class GoldenRecordSurvivorshipService {
             scoreGap, decision, ranked, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private int score(Candidate candidate) {
         int value = Math.round(candidate.completenessScore() * .5F);
         if (candidate.verified()) value += 20;
@@ -45,16 +54,28 @@ public class GoldenRecordSurvivorshipService {
         return Math.max(0, Math.min(100, value));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String entityKey,
                           @NotEmpty List<@Valid Candidate> candidates) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Candidate(@NotBlank String sourceSystem,
                             @Min(0) @Max(100) int completenessScore,
                             boolean verified, @Min(0) int freshnessDays,
                             boolean stewardApproved, @Min(0) int criticalConflicts) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ScoredCandidate(String sourceSystem, int score, int criticalConflicts) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String entityKey, String winningSource, int winningScore,
                          int scoreGap, String decision, List<ScoredCandidate> ranking,
                          List<String> actions) {}

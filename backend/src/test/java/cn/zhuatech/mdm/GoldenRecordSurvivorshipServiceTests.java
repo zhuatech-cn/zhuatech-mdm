@@ -8,9 +8,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class GoldenRecordSurvivorshipServiceTests {
     private final GoldenRecordSurvivorshipService service = new GoldenRecordSurvivorshipService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void autoMergesClearlySuperiorVerifiedSource() {
         var result = service.select(new GoldenRecordSurvivorshipService.Request("CUSTOMER-1001", List.of(
@@ -21,6 +27,9 @@ class GoldenRecordSurvivorshipServiceTests {
         assertEquals("AUTO_MERGE", result.decision());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksMergeWithCriticalConflicts() {
         var result = service.select(new GoldenRecordSurvivorshipService.Request("SUPPLIER-2001", List.of(
